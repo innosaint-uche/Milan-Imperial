@@ -34,20 +34,11 @@ const Navbar = () => {
       }`}
     >
       <div className="container-x flex items-center justify-between gap-4">
-        {/* Logo lives in a nav-item-sized wrapper (self-stretch), so the wrapper — not the
-            oversized logo — sets the bar height. When floating over the hero the logo is large
-            and overflows downward; once scrolled it shrinks to sit inside the solid bar. */}
-        <Link
-          to="/"
-          className="relative shrink-0 self-stretch w-28 md:w-40 flex items-center"
-          aria-label="Milan Imperial Limited home"
-        >
+        <Link to="/" className="flex items-center shrink-0" aria-label="Milan Imperial Limited home">
           <img
             src={LOGO}
             alt="Milan Imperial Limited"
-            className={`absolute left-0 w-auto object-contain transition-all duration-300 ${
-              scrolled ? 'top-1/2 -translate-y-1/2 h-11 md:h-12' : 'top-0 h-16 md:h-20'
-            } ${overHero ? 'brightness-0 invert' : ''}`}
+            className={`${scrolled ? 'h-14 md:h-16' : 'h-16 md:h-20'} w-auto object-contain transition-all duration-300 ${overHero ? 'brightness-0 invert' : ''}`}
           />
         </Link>
 
