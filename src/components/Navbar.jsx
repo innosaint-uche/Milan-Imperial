@@ -29,34 +29,52 @@ const Navbar = () => {
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
         transparent
-          ? 'bg-transparent py-1'
-          : 'py-2 bg-sand/90 dark:bg-ink/90 backdrop-blur-md border-b border-teal/10 dark:border-white/10'
+          ? 'bg-transparent py-4'
+          : 'py-3 bg-sand/90 dark:bg-ink/90 backdrop-blur-md border-b border-teal/10 dark:border-white/10'
       }`}
     >
       <div className="container-x flex items-center justify-between gap-4">
-        <Link to="/" className="flex items-center shrink-0" aria-label="Milan Imperial Limited home">
+        {/* Logo lives in a nav-item-sized wrapper (self-stretch), so the wrapper — not the
+            oversized logo — sets the bar height. When floating over the hero the logo is large
+            and overflows downward; once scrolled it shrinks to sit inside the solid bar. */}
+        <Link
+          to="/"
+          className="relative shrink-0 self-stretch w-28 md:w-40 flex items-center"
+          aria-label="Milan Imperial Limited home"
+        >
           <img
             src={LOGO}
             alt="Milan Imperial Limited"
-            className={`${scrolled ? 'h-20 md:h-24' : 'h-32 md:h-40'} w-auto object-contain transition-all duration-300 ${overHero ? 'brightness-0 invert' : ''}`}
+            className={`absolute left-0 w-auto object-contain transition-all duration-300 ${
+              scrolled ? 'top-1/2 -translate-y-1/2 h-11 md:h-12' : 'top-0 h-16 md:h-20'
+            } ${overHero ? 'brightness-0 invert' : ''}`}
           />
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden xl:flex items-center gap-6">
+        <nav className="hidden lg:flex items-center gap-7">
           {navLinks.map((link) => (
             <NavLink
               key={link.name}
               to={link.href}
               className={({ isActive }) =>
-                `whitespace-nowrap text-xs font-semibold tracking-[0.15em] uppercase transition-colors ${
+                `group relative whitespace-nowrap text-xs font-semibold tracking-[0.15em] uppercase transition-colors ${
                   overHero
                     ? 'text-white/80 hover:text-white'
                     : 'text-teal/80 dark:text-sand/80 hover:text-gold dark:hover:text-gold'
                 } ${isActive && !overHero ? '!text-gold' : ''}`
               }
             >
-              {link.name}
+              {({ isActive }) => (
+                <>
+                  {link.name}
+                  <span
+                    className={`pointer-events-none absolute -bottom-1.5 left-0 h-0.5 bg-gold transition-all duration-300 ${
+                      isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                    }`}
+                  />
+                </>
+              )}
             </NavLink>
           ))}
         </nav>
@@ -84,7 +102,7 @@ const Navbar = () => {
           </Link>
 
           <button
-            className={`xl:hidden ${overHero ? 'text-white' : 'text-teal dark:text-sand'}`}
+            className={`lg:hidden ${overHero ? 'text-white' : 'text-teal dark:text-sand'}`}
             onClick={() => setOpen((o) => !o)}
             aria-label="Toggle menu"
           >
@@ -95,7 +113,7 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       <div
-        className={`xl:hidden overflow-hidden transition-all duration-300 ${
+        className={`lg:hidden overflow-hidden transition-all duration-300 ${
           open ? 'max-h-[28rem]' : 'max-h-0'
         } bg-sand dark:bg-ink border-t border-teal/10 dark:border-white/10`}
       >

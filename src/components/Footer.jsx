@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr_1fr_1fr] gap-12">
           {/* Brand */}
           <div>
-            <img src={LOGO} alt="Milan Imperial Limited" className="h-20 w-auto object-contain brightness-0 invert mb-6" />
+            <img src={LOGO} alt="Milan Imperial Limited" className="h-14 w-auto object-contain brightness-0 invert mb-6" />
             <p className="text-sm leading-relaxed max-w-sm mb-6">{footer.tagline}</p>
             <blockquote className="border-l-2 border-gold/60 pl-4 text-sm italic font-display text-sand/70 max-w-sm">
               {footer.quote}
