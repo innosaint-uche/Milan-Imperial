@@ -1,50 +1,57 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Features from './components/Features';
-import ServicesDetail from './components/ServicesDetail';
-import About from './components/About';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
+import Home from './pages/Home';
+import About from './pages/About';
+import Agro from './pages/Agro';
+import Consulting from './pages/Consulting';
+import Contracting from './pages/Contracting';
+import Charter from './pages/Charter';
+import Contact from './pages/Contact';
+
+const TITLES = {
+  '/': 'Milan Imperial Limited | Creating Values — Agro-Business, Consulting, Contracting & Private Charter',
+  '/about': 'About | Milan Imperial Limited',
+  '/agro': 'Agro-Business, Farming & Financing | Milan Imperial Limited',
+  '/consulting': 'Business Consulting & Services | Milan Imperial Limited',
+  '/contracting': 'General Contracting & Facilitation | Milan Imperial Limited',
+  '/charter': 'Private Charter Consultancy | Milan Imperial Limited',
+  '/contact': 'Contact | Milan Imperial Limited',
+};
 
 function App() {
-  // Update document metadata for better SEO
-  useEffect(() => {
-    document.title = "Milan Imperial Limited | Aviation, Agro-Business & General Contracting";
+  const { pathname } = useLocation();
 
-    // Add meta description if it doesn't exist
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (!metaDescription) {
-      metaDescription = document.createElement('meta');
-      metaDescription.name = "description";
-      document.head.appendChild(metaDescription);
+  useEffect(() => {
+    document.title = TITLES[pathname] || 'Milan Imperial Limited';
+    let meta = document.querySelector('meta[name="description"]');
+    if (!meta) {
+      meta = document.createElement('meta');
+      meta.name = 'description';
+      document.head.appendChild(meta);
     }
-    metaDescription.content = "Milan Imperial Limited offers premium private charter consultancy, general contractors, agro-business financing, and procurement services globally.";
-  }, []);
+    meta.content =
+      "Milan Imperial Limited — West Africa's trusted diversified enterprise delivering agro-business, business consulting, general contracting, and private charter consultancy since 2019.";
+  }, [pathname]);
 
   return (
-    <div className="app-wrapper">
+    <div className="min-h-screen flex flex-col">
+      <ScrollToTop />
       <Navbar />
-
-      <main>
-        <Hero />
-        <Features />
-        <About />
-        <ServicesDetail />
+      <main className="flex-1">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/agro" element={<Agro />} />
+          <Route path="/consulting" element={<Consulting />} />
+          <Route path="/contracting" element={<Contracting />} />
+          <Route path="/charter" element={<Charter />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<Home />} />
+        </Routes>
       </main>
-
-      {/* Basic Contact Form / CTA Section (Could be separate Component) */}
-      <section className="section bg-light" id="contact">
-        <div className="container max-w-4xl text-center">
-          <h2 className="heading-lg mb-6">Ready to Elevate Your Expectations?</h2>
-          <p className="text-lead mx-auto mb-10">
-            Contact our dedicated consultancy team today to discuss tailored management and procurement solutions.
-          </p>
-          <a href="mailto:contact@milanimperial.com" className="btn btn-primary text-lg px-8 py-4 glow-effect">
-            Initiate Contact
-          </a>
-        </div>
-      </section>
-
       <Footer />
     </div>
   );
