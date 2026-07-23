@@ -45,10 +45,21 @@ export default {
           '0%': { transform: 'scale(1)' },
           '100%': { transform: 'scale(1.08)' },
         },
+        // Vertical marquee: content is duplicated once, so -50% is one full loop
+        'marquee-up': {
+          '0%': { transform: 'translateY(0)' },
+          '100%': { transform: 'translateY(-50%)' },
+        },
+        'marquee-down': {
+          '0%': { transform: 'translateY(-50%)' },
+          '100%': { transform: 'translateY(0)' },
+        },
       },
       animation: {
         'fade-up': 'fade-up 0.8s var(--tw-ease, ease-out) both',
         'ken-burns': 'ken-burns 12s ease-out both',
+        'marquee-up': 'marquee-up var(--marquee-duration, 40s) linear infinite',
+        'marquee-down': 'marquee-down var(--marquee-duration, 40s) linear infinite',
       },
     },
   },
