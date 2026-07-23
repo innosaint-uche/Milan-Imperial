@@ -1,4 +1,6 @@
-import { story, stats, faqs } from '../data/site';
+import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
+import { story, stats, faqs, aboutTagline, aboutValueProp } from '../data/site';
 import PageHero from '../components/PageHero';
 import Reveal from '../components/Reveal';
 import FAQ from '../components/FAQ';
@@ -60,9 +62,55 @@ const About = () => (
       </div>
     </section>
 
+    {/* Tagline */}
+    <section className="section bg-ink text-sand">
+      <div className="container-x text-center max-w-3xl mx-auto">
+        <Reveal>
+          <span className="overline mb-4 justify-center">{aboutTagline.overline}</span>
+          <h2 className="display-lg text-white mt-6 mb-6">
+            <span className="italic text-gold">{aboutTagline.title}</span>
+          </h2>
+          <p className="lead text-sand/75">{aboutTagline.text}</p>
+        </Reveal>
+      </div>
+    </section>
+
     <CoreValues />
     <OKRs />
-    <FAQ items={faqs.about} brand="Milan Imperial" className="bg-sand dark:bg-white/[0.03]" />
+
+    {/* Value proposition */}
+    <section className="section bg-sand dark:bg-ink">
+      <div className="container-x">
+        <Reveal className="max-w-3xl mb-14">
+          <span className="overline mb-4">{aboutValueProp.overline}</span>
+          <h2 className="display-lg mt-6 mb-6">{aboutValueProp.title}</h2>
+          <p className="text-teal/85 dark:text-sand/70 leading-relaxed">{aboutValueProp.intro}</p>
+          <Link to="/contact" className="link-arrow mt-7">
+            Begin a Partnership <ArrowRight size={16} />
+          </Link>
+        </Reveal>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {aboutValueProp.cards.map((c, i) => (
+            <Reveal key={c.slug} delay={(i % 2) * 0.1}>
+              <Link
+                to={`/${c.slug}`}
+                className="group card block h-full p-8 border-l-2 border-l-gold hover:shadow-xl hover:border-gold/50 transition-all"
+              >
+                <p className="text-xs font-semibold tracking-[0.2em] uppercase text-gold mb-4">{c.label}</p>
+                <p className="font-display italic text-lg md:text-xl leading-snug text-teal dark:text-sand">
+                  “{c.quote}”
+                </p>
+                <span className="link-arrow text-xs mt-6 inline-flex">
+                  Explore <ArrowRight size={14} />
+                </span>
+              </Link>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <FAQ items={faqs.about} brand="Milan Imperial" className="bg-sand-2 dark:bg-white/[0.03]" />
   </>
 );
 
