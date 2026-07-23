@@ -227,6 +227,93 @@ export const okrs = [
   },
 ];
 
+export const testimonials = [
+  {
+    quote:
+      'Milan Imperial linked our cooperative to buyers we could never have reached alone. Yields are up, payments are on time, and for the first time farming feels like a real business.',
+    name: 'Amara Okonkwo',
+    role: 'Cooperative Lead',
+    org: 'Enugu Outgrower Network',
+  },
+  {
+    quote:
+      'Their contracting team delivered our warehouse two weeks early and on budget. The transparency at every stage is unlike any contractor we have worked with in the region.',
+    name: 'Tunde Bakare',
+    role: 'Operations Director',
+    org: 'Lagos Logistics Group',
+  },
+  {
+    quote:
+      'The charter desk arranged a last-minute regional tour flawlessly. Discreet, professional, and genuinely obsessed with safety. We will not fly with anyone else.',
+    name: 'Fatou Diallo',
+    role: 'Chief of Staff',
+    org: 'Dakar Holdings',
+  },
+  {
+    quote:
+      'What impressed me most was the integrity. They flagged a costing error that was in our favour and corrected it themselves. That is rare and it earned our long-term trust.',
+    name: 'Chinedu Eze',
+    role: 'Managing Partner',
+    org: 'Meridian Capital',
+  },
+  {
+    quote:
+      'As a smallholder, the agro-financing gave me the inputs I needed at the right season. My harvest doubled and repayment was structured around my cash flow.',
+    name: 'Halima Yusuf',
+    role: 'Smallholder Farmer',
+    org: 'Kano State',
+  },
+  {
+    quote:
+      'The consulting team untangled a genuinely complex multi-party procurement for us. One point of contact, zero drama, measurable savings. Exactly what we needed.',
+    name: 'Kwame Mensah',
+    role: 'Procurement Head',
+    org: 'Accra Infrastructure Co.',
+  },
+  {
+    quote:
+      'From permits to final handover, they handled the regulatory maze so our team could focus on delivery. A true partner, not just a supplier.',
+    name: 'Ngozi Adeyemi',
+    role: 'Project Sponsor',
+    org: 'Delta Development Authority',
+  },
+  {
+    quote:
+      'Their staffing solution deployed vetted specialists within days. Quality of talent was excellent and the onboarding was seamless.',
+    name: 'Ibrahim Sow',
+    role: 'HR Director',
+    org: 'Sahel Energy',
+  },
+  {
+    quote:
+      'We started as a small pilot and now run three programmes together. They invest in the relationship and it shows in every deliverable.',
+    name: 'Aisha Bello',
+    role: 'Founder',
+    org: 'GreenRoots Agritech',
+  },
+  {
+    quote:
+      'The private aviation experience was world-class — crew, aircraft, and coordination all faultless. Milan Imperial sets the standard in West Africa.',
+    name: 'Olivier Kouassi',
+    role: 'Executive Chairman',
+    org: 'Abidjan Trading House',
+  },
+  {
+    quote:
+      'They think long-term. The regenerative practices they introduced improved our soil and our resilience through a difficult season.',
+    name: 'Zainab Musa',
+    role: 'Farm Manager',
+    org: 'Northern Yields Ltd',
+  },
+  {
+    quote:
+      'Reliable, safe, and tailored to us — every project has met the standard they promise. It is why we keep coming back.',
+    name: 'Samuel Otieno',
+    role: 'CEO',
+    org: 'Equator Ventures',
+  },
+];
+
 export const footer = {
   tagline:
     "West Africa's trusted diversified enterprise — delivering excellence in private charter consultancy, agro-business, and general contracting since October 10th, 2019.",

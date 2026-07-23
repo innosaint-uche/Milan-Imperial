@@ -4,6 +4,7 @@ import Story from '../components/home/Story';
 import Divisions from '../components/home/Divisions';
 import CoreValues from '../components/home/CoreValues';
 import OKRs from '../components/home/OKRs';
+import Testimonials from '../components/home/Testimonials';
 import ContactCTA from '../components/home/ContactCTA';
 
 const Home = () => (
@@ -14,6 +15,7 @@ const Home = () => (
     <Divisions />
     <CoreValues />
     <OKRs />
+    <Testimonials />
     <ContactCTA />
   </>
 );

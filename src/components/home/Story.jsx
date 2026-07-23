@@ -50,7 +50,7 @@ const Story = () => {
             <img src={story.images[2]} alt="Operations" className="w-full h-40 md:h-52 object-cover rounded-sm shadow-lg" />
           </div>
           <div className="absolute -bottom-5 -left-5 bg-gold text-white px-6 py-4 shadow-xl hidden md:block">
-            <p className="font-display text-2xl leading-none">Est.</p>
+            <p className="font-display text-2xl leading-none">Founded</p>
             <p className="text-xs tracking-[0.2em] uppercase mt-1">Oct 10, 2019</p>
           </div>
         </Reveal>
