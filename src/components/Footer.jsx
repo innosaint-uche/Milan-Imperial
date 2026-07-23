@@ -1,56 +1,65 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
+import { footer, LOGO, divisions } from '../data/site';
 
 const Footer = () => {
-    return (
-        <footer className="footer bg-dark text-light overflow-hidden">
-            <div className="container section">
-                <div className="footer-grid grid-cols-3">
+  const keywords = divisions.flatMap((d) => d.keywords);
 
-                    <div className="footer-brand">
-                        <div className="flex-center gap-4 align-start mb-6">
-                            <img src="/Milan-imperial.jpeg" alt="Logo" className="footer-logo rounded-full w-12 h-12" />
-                            <h3 className="heading-md text-white m-0">Milan Imperial Limited</h3>
-                        </div>
-                        <p className="text-sm opacity-80 max-w-sm">
-                            Premium management, consultancy, and procurement facilitating excellence across Aviation, Agriculture, and Infrastructure.
-                        </p>
-                    </div>
+  return (
+    <footer className="bg-ink text-sand/80">
+      <div className="container-x section">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr_1fr_1fr] gap-12">
+          {/* Brand */}
+          <div>
+            <img src={LOGO} alt="Milan Imperial Limited" className="h-14 w-auto object-contain brightness-0 invert mb-6" />
+            <p className="text-sm leading-relaxed max-w-sm mb-6">{footer.tagline}</p>
+            <blockquote className="border-l-2 border-gold/60 pl-4 text-sm italic font-display text-sand/70 max-w-sm">
+              {footer.quote}
+            </blockquote>
+          </div>
 
-                    <div className="footer-links">
-                        <h4 className="heading-sm text-accent mb-6">Our Services</h4>
-                        <ul className="space-y-4">
-                            <li><a href="#charter" className="hover-text-white transition-colors">Private Charter Consultancy</a></li>
-                            <li><a href="#agro" className="hover-text-white transition-colors">Agro-business & Farming</a></li>
-                            <li><a href="#contracting" className="hover-text-white transition-colors">General Contracting</a></li>
-                        </ul>
-                    </div>
-
-                    <div className="footer-contact">
-                        <h4 className="heading-sm text-accent mb-6">Connect</h4>
-                        <ul className="space-y-4">
-                            <li className="flex gap-3">
-                                <span className="text-accent">📍</span>
-                                <span className="opacity-80 hover-text-white transition-colors">Global Headquarters</span>
-                            </li>
-                            <li className="flex gap-3">
-                                <span className="text-accent">✉️</span>
-                                <a href="mailto:contact@milanimperial.com" className="opacity-80 hover-text-white transition-colors">contact@milanimperial.com</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                </div>
-
-                <div className="footer-bottom mt-16 pt-8 border-t border-white-10 flex-between">
-                    <p className="text-sm opacity-60">© {new Date().getFullYear()} Milan Imperial Limited. All rights reserved.</p>
-                    <div className="flex gap-4">
-                        <a href="#" className="opacity-60 hover-opacity-100 transition-opacity">Privacy</a>
-                        <a href="#" className="opacity-60 hover-opacity-100 transition-opacity">Terms</a>
-                    </div>
-                </div>
+          {/* Link columns */}
+          {footer.columns.map((col) => (
+            <div key={col.title}>
+              <h4 className="text-gold text-sm font-semibold tracking-[0.2em] uppercase mb-6">{col.title}</h4>
+              <ul className="space-y-3">
+                {col.links.map((link) => (
+                  <li key={link.name}>
+                    <Link to={link.href} className="text-sm hover:text-white transition-colors">
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
-        </footer>
-    );
+          ))}
+        </div>
+
+        {/* Keywords */}
+        <div className="mt-16 pt-8 border-t border-white/10">
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-sand/40 mb-4">
+            Service Keywords &amp; Coverage Areas
+          </p>
+          <div className="flex flex-wrap gap-x-4 gap-y-2">
+            {keywords.map((k) => (
+              <span key={k} className="text-xs text-sand/40">
+                {k}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row gap-4 items-center justify-between">
+          <p className="text-xs text-sand/50">
+            © {new Date().getFullYear()} Milan Imperial Limited. All rights reserved.
+          </p>
+          <p className="text-xs tracking-[0.2em] uppercase text-sand/50">
+            Creating Values · Integrity · Excellence
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;
