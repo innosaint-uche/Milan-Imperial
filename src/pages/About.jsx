@@ -1,6 +1,7 @@
-import { story, stats } from '../data/site';
+import { story, stats, faqs } from '../data/site';
 import PageHero from '../components/PageHero';
 import Reveal from '../components/Reveal';
+import FAQ from '../components/FAQ';
 import CoreValues from '../components/home/CoreValues';
 import OKRs from '../components/home/OKRs';
 
@@ -61,6 +62,7 @@ const About = () => (
 
     <CoreValues />
     <OKRs />
+    <FAQ items={faqs.about} brand="Milan Imperial" className="bg-sand dark:bg-white/[0.03]" />
   </>
 );
 
