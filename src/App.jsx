@@ -21,6 +21,20 @@ const TITLES = {
   '/contact': 'Contact | Milan Imperial Limited',
 };
 
+const DEFAULT_DESCRIPTION =
+  "Milan Imperial Limited — West Africa's trusted diversified enterprise delivering agro-business, business consulting, general contracting, and private charter consultancy since 2019.";
+
+const DESCRIPTIONS = {
+  '/about':
+    'Milan Imperial Limited holds 775 plots — 51.7 hectares of Nigerian farmland across Benue, Taraba and Plateau — after more than doubling its land base in a single year. See our track record, our published targets, and how to invest whatever you are starting with.',
+  '/agro':
+    'Invest in Nigerian agriculture with an operator, not an agent. 775 plots owned, 8,000+ yam tubers harvested, first UK export underway. Bring capital and we provide land, farmers and buyers — or bring land and we will tell you what it can grow.',
+  '/consulting':
+    'Business consulting from Milan Imperial Limited — strategic advisory, procurement, staffing, financing, and agricultural entry advisory for investors with capital and landowners with idle ground.',
+  '/contracting':
+    'General contracting, construction supplies and project facilitation across Nigeria and West Africa — plus residential property acquisition in the United States, United Kingdom and Australia.',
+};
+
 function App() {
   const { pathname } = useLocation();
 
@@ -32,8 +46,7 @@ function App() {
       meta.name = 'description';
       document.head.appendChild(meta);
     }
-    meta.content =
-      "Milan Imperial Limited — West Africa's trusted diversified enterprise delivering agro-business, business consulting, general contracting, and private charter consultancy since 2019.";
+    meta.content = DESCRIPTIONS[pathname] || DEFAULT_DESCRIPTION;
   }, [pathname]);
 
   return (

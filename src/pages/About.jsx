@@ -4,6 +4,10 @@ import { story, stats, faqs, aboutTagline, aboutValueProp } from '../data/site';
 import PageHero from '../components/PageHero';
 import Reveal from '../components/Reveal';
 import FAQ from '../components/FAQ';
+import Traction from '../components/Traction';
+import LandPortfolio from '../components/LandPortfolio';
+import GrowthTargets from '../components/GrowthTargets';
+import InvestorPaths from '../components/InvestorPaths';
 import CoreValues from '../components/home/CoreValues';
 import OKRs from '../components/home/OKRs';
 
@@ -61,6 +65,12 @@ const About = () => (
         ))}
       </div>
     </section>
+
+    {/* Evidence, land position, targets, and how to participate */}
+    <Traction className="bg-sand dark:bg-ink" />
+    <LandPortfolio className="bg-sand-2 dark:bg-white/[0.03]" />
+    <GrowthTargets />
+    <InvestorPaths className="bg-sand dark:bg-ink" />
 
     {/* Tagline */}
     <section className="section bg-ink text-sand">

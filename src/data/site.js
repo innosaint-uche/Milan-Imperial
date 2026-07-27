@@ -59,10 +59,10 @@ export const heroSlides = [
 ];
 
 export const stats = [
-  { value: '100+', label: 'Smallholder Farmers Supported' },
-  { value: '4', label: 'Business Divisions Operating' },
-  { value: '2019', label: 'Year Founded' },
-  { value: '100%', label: 'Commitment to Safety & Excellence' },
+  { value: '775', label: 'Plots of Farmland — 51.7 Hectares' },
+  { value: '+107%', label: 'Land Portfolio Growth This Year' },
+  { value: '8,000+', label: 'Yam Tubers Planted & Harvested' },
+  { value: '2,500+', label: 'Farmers Engaged Across Our Land' },
 ];
 
 export const story = {
@@ -70,7 +70,9 @@ export const story = {
   emphasis: 'Diversified Enterprise',
   paragraphs: [
     'Milan Imperial Limited was incorporated on October 10th, 2019 with a simple but powerful idea: that a diversified enterprise, built on integrity, excellence, and collaboration, could transform industries and communities across West Africa.',
-    'From a single office with a handful of dedicated professionals, we have grown into an organisation operating across dynamic sectors — private charter consultancy, agro-business, business consulting, and general contracting — serving clients who trust us with their most important projects and journeys.',
+    'From a single office with a handful of dedicated professionals, we have grown into an organisation operating across dynamic sectors — agro-business, business consulting, general contracting, and private charter consultancy — serving clients who trust us with their most important projects and journeys.',
+    'That growth is measurable. We began with 375 plots of Nigerian farmland. This year alone we added 400 more across Benue, Taraba and Plateau State, taking the portfolio to 775 plots — 51.7 hectares — and more than doubling our land base in twelve months. On it we have planted and harvested over 8,000 tubers of yam, commenced our first trial export to the United Kingdom, and built a livestock operation supplying restaurants in Lagos.',
+    'Our reach extends beyond agriculture and beyond Nigeria. Alongside our general contracting practice, we acquire residential property in the United States, the United Kingdom and Australia. And through our consulting division we open the door to agriculture for people who have capital but no land, and for landowners who have ground but no plan.',
     'Our incorporation date is more than a legal formality. It is the foundation upon which everything we have built stands. Though we may be young compared to century-old institutions, our standards and our commitment to excellence rival the best in the world.',
   ],
   vision:
@@ -78,6 +80,149 @@ export const story = {
   mission:
     'To empower progress across West Africa by delivering world-class agricultural solutions, superior construction projects, and seamless private charter experiences.',
   images: [U('1497366811353-6870744d04b2', 900), U('1519389950473-47ba0277781c', 600), U('1460925895917-afdab827c52f', 600)],
+};
+
+// ---------------------------------------------------------------------------
+// Verified operating figures. Plot-to-hectare conversion uses the Nigerian
+// standard 60ft x 120ft plot (~669 m2) = 15 plots per hectare, which is the
+// ratio implied by the founding holding of 375 plots = 25 hectares.
+// Shared by the About page and the Agro division page.
+// ---------------------------------------------------------------------------
+export const landPortfolio = {
+  overline: 'Land Under Management',
+  title: 'From 25 Hectares to 51.7 — In a Single Year',
+  intro:
+    'Milan Imperial does not talk about agriculture in the abstract. We own and work the land. This is the full position as it stands today, state by state, with nothing rounded in our favour.',
+  columns: ['Location', 'Plots', 'Hectares', 'Status'],
+  rows: [
+    { region: 'Benue', plots: '115', hectares: '7.7', status: 'Acquired 2026' },
+    { region: 'Taraba', plots: '255', hectares: '17.0', status: 'Acquired 2026' },
+    { region: 'Jos, Plateau', plots: '30', hectares: '2.0', status: 'Acquired 2026' },
+    { region: 'Founding holdings', plots: '375', hectares: '25.0', status: 'Held since inception' },
+  ],
+  total: { region: 'Total portfolio', plots: '775', hectares: '51.7', status: 'Under management' },
+  highlight: {
+    value: '400',
+    unit: 'plots',
+    label: 'added this year — 26.7 hectares',
+    sub: 'A 107% increase on our founding land base, acquired in twelve months.',
+  },
+  footnote:
+    'Hectares converted at the Nigerian standard 60ft x 120ft plot (15 plots per hectare) — the same ratio as our founding 375-plot, 25-hectare holding.',
+};
+
+export const traction = {
+  overline: 'What We Have Actually Done',
+  title: 'Proof, Not Projections',
+  intro:
+    'Every figure below describes work already completed — land already bought, crops already in the ground and out of it, animals already sold, product already on its way overseas.',
+  items: [
+    {
+      num: '01',
+      stat: '775 plots',
+      title: 'Land Acquired and Held',
+      desc: '51.7 hectares across Benue, Taraba, Plateau and our founding holdings — more than doubled in the past twelve months.',
+    },
+    {
+      num: '02',
+      stat: '8,000+',
+      title: 'Yam Tubers Planted and Harvested',
+      desc: 'Not planted and hoped for. Planted, grown, and brought in — a completed production cycle on our own land.',
+    },
+    {
+      num: '03',
+      stat: 'First export',
+      title: 'Trial Shipment to the United Kingdom',
+      desc: 'Our first trial export to the UK has commenced, opening the foreign-currency market that changes the economics of everything we grow.',
+    },
+    {
+      num: '04',
+      stat: '2,500+',
+      title: 'Farmers Engaged',
+      desc: 'We engage the equivalent of 50 farmers per hectare, working hand-in-hand with local farming communities rather than displacing them.',
+    },
+    {
+      num: '05',
+      stat: 'Livestock',
+      title: 'Ruminants Supplying Lagos',
+      desc: 'We have moved into animal husbandry, acquiring ruminant animals and supplying Lagos restaurants — revenue that does not wait on a harvest calendar.',
+    },
+    {
+      num: '06',
+      stat: '4 divisions',
+      title: 'Diversified Beyond Agriculture',
+      desc: 'Agro-business, consulting, general contracting, and private charter — plus residential property acquisition in the US, UK and Australia.',
+    },
+  ],
+};
+
+export const growthTargets = {
+  overline: 'Targets & Track Record',
+  title: 'We Set Targets. We Meet Them.',
+  intro:
+    'A target only means something if there is a history of hitting them. Here is what we set out to do this year, what we delivered, and what we are committing to next.',
+  deliveredLabel: 'Set for 2026 — Delivered',
+  nextLabel: 'Committed for 2027',
+  delivered: [
+    { target: 'Expand the land base beyond our founding holdings', result: '400 plots added — 26.7 hectares, a 107% increase' },
+    { target: 'Complete a full production cycle at scale', result: '8,000+ yam tubers planted and harvested' },
+    { target: 'Open an international market channel', result: 'First trial export to the United Kingdom commenced' },
+    { target: 'Diversify revenue beyond seasonal crops', result: 'Ruminant livestock operation supplying Lagos restaurants' },
+  ],
+  next: [
+    { target: '1,200 plots — 80 hectares under management', detail: 'Continuing the acquisition programme across Benue, Taraba and Plateau.' },
+    { target: '25,000 yam tubers planted and harvested', detail: 'Scaling our proven production cycle onto the newly acquired land.' },
+    { target: 'First full commercial export container to the UK', detail: 'Converting the successful trial shipment into recurring export revenue.' },
+    { target: '4,000 farmer placements', detail: 'Maintaining 50 farmers per hectare as the land base grows.' },
+  ],
+  footnote: 'Targets are reviewed and reported against annually.',
+};
+
+export const investorPaths = {
+  overline: 'Invest With Us',
+  title: 'Three Ways In — Whatever You Are Starting With',
+  intro:
+    'You do not need a fortune and you do not need to know anything about farming. You need capital or land, and a decision. We handle everything between that decision and your return.',
+  paths: [
+    {
+      num: '01',
+      title: 'You have capital, not land',
+      lead: 'The most common place people start.',
+      steps: [
+        'Tell us what you want to farm and the gain you are working towards.',
+        'We provide the land from our own 51.7-hectare portfolio.',
+        'We supply the farmers who plant, tend and harvest it.',
+        'If you want, we sell the harvest for you through our market and export channels.',
+        'You receive your capital and your gain. We take only the percentage agreed at the start.',
+      ],
+      note: 'No minimum fortune required. The percentage is agreed before a single seed goes in the ground.',
+    },
+    {
+      num: '02',
+      title: 'You have land, not a plan',
+      lead: 'Idle land is the most expensive thing you can own.',
+      steps: [
+        'We assess your land and advise exactly what it can profitably grow.',
+        'You take that plan and farm it yourself, with our advisory behind you.',
+        'Or we farm it for you end to end — our farmers, our inputs, our management.',
+        'If we farm it, you take an agreed percentage of what the land produces.',
+      ],
+      note: 'Either route, you find out what your land is actually worth before you spend anything on it.',
+    },
+    {
+      num: '03',
+      title: 'You want to grow with the company',
+      lead: 'Back the operation itself, not a single field.',
+      steps: [
+        'Participate across a portfolio already spanning 775 plots in three states.',
+        'Exposure to crop production, livestock, and our UK export channel together.',
+        'Backed by a company that more than doubled its land base in twelve months.',
+        'Transparent reporting against published annual targets.',
+      ],
+      note: 'Talk to us about the level that fits what you have to commit.',
+    },
+  ],
+  cta: { label: 'Start a Conversation', text: 'Tell us what you have to work with and we will tell you honestly what it can do.' },
 };
 
 export const divisions = [
@@ -88,99 +233,100 @@ export const divisions = [
     quote: 'Empower farmers. Enhance food security. Create lasting value.',
     image: U('1464226184884-fa280b87c399'),
     description:
-      "Milan Imperial's Agro-Business division connects farmers to markets, enhances productivity through sustainable practices, and delivers high-quality agricultural products meeting international standards. With deep local relationships across 100+ smallholder farmers, we are reshaping West African agriculture.",
+      "Milan Imperial's Agro-Business division owns and works 775 plots — 51.7 hectares across Benue, Taraba and Plateau. We have planted and harvested over 8,000 yam tubers, commenced our first trial export to the UK, and moved into livestock supplying Lagos restaurants. We farm our own land, and we farm yours.",
     keywords: [
       'Agro-Business Nigeria',
-      'Farm Financing West Africa',
+      'Farmland Investment Nigeria',
+      'Managed Farming Nigeria',
       'Agricultural Value Chain Nigeria',
-      'Sustainable Farming West Africa',
-      'Smallholder Farmer Support',
-      'Commodity Sourcing Nigeria',
+      'Yam Production & Export',
+      'Animal Husbandry Nigeria',
       'Agro-Financing Nigeria',
-      'Climate-Smart Agriculture',
+      'Farm Partnership Benue Taraba Plateau',
     ],
     metrics: [
-      { value: '100+', label: 'Smallholder Farmers Supported' },
-      { value: '150+', label: 'Outgrower Target' },
-      { value: '25%', label: 'Carbon Reduction Target' },
-      { value: '100%', label: 'Sustainable Sourcing Goal' },
+      { value: '775', label: 'Plots Owned — 51.7 Hectares' },
+      { value: '8,000+', label: 'Yam Tubers Harvested' },
+      { value: '2,500+', label: 'Farmers Engaged' },
+      { value: '+107%', label: 'Land Growth This Year' },
     ],
     overview: {
-      lead: 'Transforming Agriculture ',
-      emphasis: 'Across West Africa',
+      lead: 'We Own the Land. ',
+      emphasis: 'We Work It.',
       paragraphs: [
-        "Milan Imperial's Agro-Business division is one of West Africa's most comprehensive agricultural solutions providers. We empower farmers, enhance food security, and promote sustainable agricultural practices across Nigeria and the broader West African sub-region. Our mission is to transform agricultural value chains by connecting farmers to markets, enhancing productivity through sustainable practices, and delivering high-quality agricultural products that meet international standards.",
-        'Since our incorporation on October 10th, 2019, Milan Imperial has built deep local relationships with over 100 smallholder farmers. We work alongside farming communities — providing inputs, finance, technical knowledge, and market access — to create value at every point of the agricultural chain.',
-        'Our integrated approach combines agro-business operations, direct farm management, bespoke agro-financing structures, climate-smart practices, and market linkage services into a single, seamless offering. Whether you are a smallholder farmer, a commercial agricultural enterprise, or an institutional investor in West African agriculture, Milan Imperial delivers solutions tailored to your specific needs.',
+        "Milan Imperial's Agro-Business division is not an advisory practice that talks about farming from an office. We hold 775 plots of Nigerian farmland — 51.7 hectares across Benue, Taraba and Plateau State — and we more than doubled that base in the last twelve months, adding 400 plots in a single year.",
+        'On that land we have planted and harvested over 8,000 tubers of yam: a complete production cycle, start to finish. We have commenced our first trial export to the United Kingdom, opening the foreign-currency channel that transforms the economics of everything we grow. And we have moved into animal husbandry, acquiring ruminant animals and supplying Lagos restaurants — revenue that does not wait on a harvest calendar.',
+        'We engage the equivalent of 50 farmers per hectare, working alongside local farming communities rather than displacing them. Across the portfolio that is more than 2,500 people earning a living from land we manage. Growth here is not an abstraction — it is measured in plots bought, tubers lifted, animals sold, and containers shipped.',
+        'If you have capital and want to farm, we will provide the land, the farmers and the buyer. If you have land and do not know what to do with it, we will tell you what it can grow and, if you want, grow it for you. That is the whole offer, and it is open to you whatever the size of what you are starting with.',
       ],
     },
     whyChoose: {
-      title: 'Why Choose Milan Imperial Agro?',
-      ctaLabel: 'Partner With Us',
+      title: 'Why Invest Through Milan Imperial?',
+      ctaLabel: 'Start a Conversation',
       points: [
-        'Deep local relationships with over 100 smallholder farmers since October 10th, 2019',
-        'Commitment to regenerative and climate-smart agricultural practices',
-        'Quality assurance through rigorous testing and traceability',
-        'Reliable supply chain powered by integrated logistics',
-        'Bespoke agro-financing solutions for all scales of operation',
-        'Direct market linkage to domestic and international buyers',
-        'In-house extension services and agronomic advisory',
-        'ISO-aligned quality management and traceability systems',
+        '775 plots — 51.7 hectares of farmland owned and worked, not leased on paper',
+        'Land base more than doubled in twelve months: 400 plots added this year',
+        'A completed production cycle: 8,000+ yam tubers planted and harvested',
+        'First trial export to the United Kingdom already commenced',
+        'Livestock operation supplying Lagos restaurants — revenue between harvests',
+        'No minimum fortune required — we structure around what you have',
+        'Your percentage agreed in writing before a single seed goes in the ground',
+        'You get land, farmers, management and a buyer from one organisation',
       ],
     },
     valueProp: {
       quote:
-        'We transform agricultural value chains by connecting farmers to markets, enhancing productivity through sustainable practices, and delivering high-quality agricultural products that meet international standards.',
+        'Tell us what you want to farm and what you want to earn. We provide the land, the farmers, the harvest and the buyer — you take your capital and your gain, and we take only the percentage we agreed at the start.',
       label: 'Milan Imperial Agro-Business Division Value Proposition',
     },
     servicesHeading: { overline: 'Our Services', title: 'What We Deliver' },
     services: [
       {
         num: '01',
-        title: 'Agro-Business Operations',
+        title: 'Managed Farming for Investors',
         paragraphs: [
-          'We manage full-cycle agribusiness operations from input supply to commodity processing. Our teams work directly with farming communities across West Africa to build integrated agricultural value chains that connect smallholder farmers to premium domestic and international markets.',
-          'Covering crop sourcing, aggregation, processing, quality control, and market linkage for cassava, maize, soybean, cocoa, palm produce, and other strategic commodities.',
+          'You bring capital. We bring everything else. Tell us what you want to farm and the return you are working towards, and we allocate land from our own 51.7-hectare portfolio, deploy the farmers who plant and harvest it, and manage the crop through to lifting.',
+          'If you want us to, we sell the harvest through our domestic and export channels too. You receive your capital and your gain, and we take only the percentage agreed before planting begins. There is no minimum fortune — we structure around what you actually have.',
         ],
       },
       {
         num: '02',
-        title: 'Farming & Production',
+        title: 'Land Advisory & Farm Partnership',
         paragraphs: [
-          'Milan Imperial supports large-scale and smallholder farming through mechanization, soil health management, precision agriculture techniques, and best-practice extension services. We operate and manage farms across West Africa with a focus on yield optimisation and sustainability.',
-          'Services include land clearing and preparation, planting schedule management, irrigation support, pest and disease control, and harvest logistics.',
+          'Own land and do not know what to do with it? We assess soil, climate and market conditions and tell you exactly what your land can profitably grow — then you decide how far you want us involved.',
+          'Take the plan and farm it yourself with our advisory behind you, or hand it to us entirely: our farmers, our inputs, our management, and an agreed percentage of the proceeds back to you. Either way you stop guessing what your land is worth.',
         ],
       },
       {
         num: '03',
-        title: 'Agro-Financing',
+        title: 'Farming & Production',
         paragraphs: [
-          'Access to capital is the #1 barrier for West African farmers. Milan Imperial structures bespoke agro-financing solutions — from smallholder farm credit to large-scale project finance — enabling farmers and agri-businesses to grow without compromising their futures.',
-          'Products include input financing, crop advance facilities, commodity-backed lending, outgrower programme finance, and project development funding for agricultural infrastructure.',
+          'We work 775 plots across Benue, Taraba and Plateau State, engaging the equivalent of 50 farmers per hectare from the surrounding communities. This past cycle we planted and harvested over 8,000 tubers of yam on our own land.',
+          'Operations cover land clearing and preparation, planting schedules, soil health management, pest and disease control, harvest logistics, and post-harvest handling built to export standard.',
         ],
       },
       {
         num: '04',
-        title: 'Agricultural Value Chain',
+        title: 'Animal Husbandry & Livestock',
         paragraphs: [
-          'We design, build, and manage agricultural value chains that connect primary producers to end markets. Our value chain expertise spans procurement, logistics, storage, processing, packaging, and distribution across the West African sub-region.',
-          'Our integrated approach reduces post-harvest losses, improves price realisation for farmers, and delivers consistently high-quality agricultural commodities to buyers.',
+          'Milan Imperial has moved into livestock, acquiring ruminant animals and supplying restaurants across Lagos. It is a deliberate hedge: livestock generates revenue on a different cycle to crops, so the business is not held hostage by a single harvest calendar.',
+          'The operation covers stock acquisition, husbandry and welfare, feed management, and direct supply relationships with Lagos hospitality buyers.',
         ],
       },
       {
         num: '05',
         title: 'Market Access & Export',
         paragraphs: [
-          'Milan Imperial provides market access services that help West African agri-businesses break into premium domestic, regional, and international markets. We handle compliance, certification, documentation, and buyer relationship management.',
-          'Export markets include Europe, Asia, and the Middle East. We assist with GlobalG.A.P., organic, and fair-trade certification processes.',
+          'Our first trial export to the United Kingdom has commenced — the channel that turns naira-denominated harvests into foreign-currency revenue. We handle compliance, certification, documentation and buyer relationships end to end.',
+          'For partners farming through us, this is the difference between selling into a local glut at harvest time and reaching a buyer who pays a premium for quality and traceability.',
         ],
       },
       {
         num: '06',
-        title: 'Sustainable & Climate-Smart Agriculture',
+        title: 'Agro-Financing',
         paragraphs: [
-          'We integrate climate-smart and regenerative agricultural practices into every programme we manage. Our commitment to sustainability improves soil health, sequesters carbon, and builds farmer resilience to climate change across the West African landscape.',
-          'Programmes include cover cropping, conservation tillage, integrated pest management, water harvesting, and agroforestry systems.',
+          'Access to capital is the single largest barrier for Nigerian farmers. We structure input financing, crop advance facilities, commodity-backed lending, and project finance for agricultural infrastructure.',
+          'Each structure is matched to the cash flow profile of the specific crop and season, so repayment falls due when the money actually arrives — after harvest, not before it.',
         ],
       },
     ],
@@ -190,20 +336,20 @@ export const divisions = [
       paragraphs: [
         "Milan Imperial's agro-business division promotes regenerative agricultural practices that improve soil health, sequester carbon, and increase farmer resilience to climate change. We think long-term — our decisions today must benefit farmers, clients, communities, and ecosystems for generations to come.",
         'Our commitment to sustainable stewardship is not just an ethical position — it is a business strategy. Sustainable farms are more productive, more resilient, and more attractive to premium buyers. By integrating climate-smart practices from the ground up, we create agricultural enterprises that are built to last.',
-        'Through our outgrower programme, we have committed to expanding support to over 150 smallholder farmers while reducing carbon emissions across our operations by 25% and achieving 100% sustainable sourcing for all key commodities.',
+        'We engage the equivalent of 50 farmers per hectare, which across our 51.7 hectares means more than 2,500 people earning from land we manage. We work with the local farming communities already on the ground rather than displacing them — their knowledge of the soil is an asset no amount of capital can buy.',
       ],
       pillars: [
         { title: 'Regenerative Practices', desc: 'Soil health, cover cropping, and agroforestry integrated into all programmes.' },
-        { title: 'Water Management', desc: 'Irrigation support, water harvesting, and efficient usage protocols.' },
-        { title: 'Community Impact', desc: 'Community development initiatives in all operating regions.' },
-        { title: 'Farmer Income Growth', desc: 'Market linkage and finance designed to maximise farmer income.' },
+        { title: 'Local Farmers First', desc: '50 farmers engaged per hectare, drawn from the surrounding communities.' },
+        { title: 'Revenue Diversification', desc: 'Livestock alongside crops, so income is not tied to one harvest calendar.' },
+        { title: 'Export Discipline', desc: 'Post-harvest handling built to the standard our UK channel demands.' },
       ],
     },
     cta: {
       overline: 'Ready to Grow?',
-      title: 'Partner With Milan Imperial Agro',
-      text: 'Whether you are a farmer, investor, or agri-business — we have the expertise and network to grow your operation.',
-      buttonLabel: 'Get Started',
+      title: 'Put Your Money in Ground That Is Already Producing',
+      text: 'Capital, land, or just an interest in where this is going — tell us what you have and we will tell you honestly what it can do.',
+      buttonLabel: 'Start a Conversation',
     },
   },
   {
@@ -213,14 +359,23 @@ export const divisions = [
     quote: 'Excellence Across Sectors.',
     image: 'https://res.cloudinary.com/innosaint/image/upload/v1773656127/Business__Consulting_Services_abmwlv.png',
     description:
-      'A strategic partner delivering consultancy, procurement, management, staffing, and financing services customised to each engagement. We manage complexity so our clients can focus on what they do best.',
-    keywords: ['Business Consulting', 'Enterprise Complexity Management', 'Strategic Partnerships', 'Corporate Financing Solutions', 'Staffing & Procurement'],
+      'A strategic partner delivering consultancy, procurement, management, staffing, and financing services customised to each engagement — including our agricultural entry advisory for investors with capital and landowners with idle ground.',
+    keywords: [
+      'Business Consulting',
+      'Agricultural Investment Advisory',
+      'Land Utilisation Consulting Nigeria',
+      'Enterprise Complexity Management',
+      'Strategic Partnerships',
+      'Corporate Financing Solutions',
+      'Staffing & Procurement',
+    ],
     overview: {
       lead: 'Managing Complexity with ',
       emphasis: 'Strategic Precision',
       paragraphs: [
         'Milan Imperial Limited functions as a strategic partner, delivering consultancy, procurement, management, staffing, and financing services customized to the precise circumstances of each engagement.',
         'We understand that each client possesses unique requirements that demand tailored solutions. Rather than offering standardized packages, we excel at managing complexity. You gain a single point of contact guiding you through regulatory frameworks, multiple service providers, and operational milestones, thus reducing administrative burdens and accelerating timelines.',
+        'One of our fastest-growing consulting practices is agricultural entry. Clients come to us with capital and no farmland, or with farmland and no plan — and in both cases we can advise, execute, or do both. Because Milan Imperial farms 51.7 hectares of its own, this is advice from an operator, not a spectator.',
         'From building networks of qualified professionals to securing asset-based lending and optimal capital structures, our consulting division brings unyielding dedication, reliability, and precision to your business growth.',
       ],
     },
@@ -287,6 +442,22 @@ export const divisions = [
           'Our experts ensure that your operations consistently meet or exceed local and international regulatory standards.',
         ],
       },
+      {
+        num: '07',
+        title: 'Agricultural Investment Advisory',
+        paragraphs: [
+          'For clients with capital who want to move into agriculture but have no land, no farmers and no idea where to start. You tell us what you want to farm and the gain you are targeting; we tell you honestly whether it is achievable, and what it will take.',
+          'From there we can execute the whole thing — allocating land from our own portfolio, deploying farmers, managing the crop, and selling the harvest. You take your capital and your gain; we take the percentage agreed up front.',
+        ],
+      },
+      {
+        num: '08',
+        title: 'Land Utilisation Consulting',
+        paragraphs: [
+          'For landowners sitting on ground that earns nothing. We assess soil, climate, access and market demand, then tell you exactly what your land can profitably produce and what the realistic numbers look like.',
+          'You can act on that plan yourself with our advisory support, or hand the land to us to farm on an agreed profit share. Either way you leave the engagement knowing what your asset is actually worth.',
+        ],
+      },
     ],
     cta: {
       overline: 'Ready to Advance?',
@@ -302,15 +473,16 @@ export const divisions = [
     quote: 'We build with integrity — delivering projects that stand the test of time.',
     image: 'https://res.cloudinary.com/innosaint/image/upload/v1773654210/Gemini_Generated_Image_rjap7zrjap7zrjap_uc84hi.png',
     description:
-      'Our contracting division delivers construction and engineering projects emphasising quality, safety, and transparent partnership — from initial blueprints and material supply to final handover.',
+      'Our contracting division delivers construction and engineering projects emphasising quality, safety, and transparent partnership — from initial blueprints and material supply to final handover. We also acquire residential property in the United States, United Kingdom and Australia.',
     keywords: [
       'General Contracting Nigeria',
       'Construction West Africa',
+      'International Property Acquisition',
+      'Residential Acquisition US UK Australia',
       'Infrastructure Nigeria',
       'Building Supplies Nigeria',
       'Project Facilitation West Africa',
       'Civil Contractor Nigeria',
-      'Engineering Projects West Africa',
     ],
     metrics: [
       { value: '100%', label: 'On-Time Project Delivery Target' },
@@ -395,6 +567,14 @@ export const divisions = [
         paragraphs: [
           'Safety is not a slogan at Milan Imperial — it is a fundamental value that guides every decision on every construction site. Our HSE standards exceed regulatory requirements, and our teams are empowered to halt work if conditions become unsafe, regardless of deadlines.',
           'Full HSE management including risk assessments, method statements, toolbox talks, incident reporting, environmental impact monitoring, and site safety audits.',
+        ],
+      },
+      {
+        num: '07',
+        title: 'International Residential Acquisition',
+        paragraphs: [
+          'Milan Imperial acquires residential houses in the United States, the United Kingdom and Australia. This is an acquisition capability, not an estate agency — we are not in the business of listing and selling property, we are in the business of securing the right house on the right terms.',
+          'The work covers sourcing and shortlisting, structural and title due diligence, price negotiation, coordinating solicitors and surveyors across jurisdictions, and seeing the purchase through to completion. Our contracting background means a building is assessed by people who know what a defect costs to put right.',
         ],
       },
     ],
@@ -531,13 +711,13 @@ export const aboutValueProp = {
   overline: 'Value Proposition',
   title: 'Why Clients Choose Milan Imperial',
   intro:
-    "Milan Imperial Limited delivers integrated excellence across agribusiness, business consulting, contracting, and private charter — combining global standards with local expertise to provide solutions that are reliable, safe, and tailored to our clients' unique needs. Since October 10th, 2019, we have built a reputation for delivering on this promise.",
+    "Milan Imperial Limited delivers integrated excellence across agribusiness, business consulting, contracting, and private charter — combining global standards with local expertise to provide solutions that are reliable, safe, and tailored to our clients' unique needs. Since October 10th, 2019, we have built a reputation for delivering on this promise — and the figures on this page are the evidence.",
   cards: [
     {
       label: 'Agro-Business',
       slug: 'agro',
       quote:
-        'We transform agricultural value chains by connecting farmers to markets, enhancing productivity through sustainable practices, and delivering high-quality agricultural products that meet international standards.',
+        'We own and work 775 plots of Nigerian farmland. Bring capital and we provide the land, the farmers and the buyer. Bring land and we tell you what it can grow — then grow it for you if you want.',
     },
     {
       label: 'Business Consulting',
@@ -549,7 +729,7 @@ export const aboutValueProp = {
       label: 'Contracting',
       slug: 'contracting',
       quote:
-        'We build with integrity — delivering construction and engineering projects that stand the test of time through unwavering commitment to quality, safety, and transparent partnership.',
+        'We build with integrity — and we acquire residential property in the US, UK and Australia, assessed by people who know what a defect costs to put right.',
     },
     {
       label: 'Private Charter',
@@ -608,10 +788,10 @@ export const okrs = [
     num: '02',
     title: 'Sustainable Growth',
     results: [
-      '+15% Nigerian agro-processing market share',
-      '+25% private charter client base in West Africa',
+      '1,200 plots — 80 hectares of farmland under management',
+      '25,000 yam tubers planted and harvested',
+      'First full commercial export container to the United Kingdom',
       '3 major infrastructure contracts secured in new regions',
-      'Sustainable sourcing programme for 100% of key commodities',
     ],
   },
   {
@@ -628,7 +808,7 @@ export const okrs = [
     num: '04',
     title: 'Community & Environment',
     results: [
-      'Outgrower programme supporting over 150 smallholder farmers',
+      '4,000 farmer placements at 50 farmers per hectare',
       '25% reduction in carbon emissions',
       'Community development in all operating regions',
       'Zero waste-to-landfill at headquarters and major facilities',
@@ -641,24 +821,36 @@ export const okrs = [
 export const faqs = {
   agro: [
     {
-      q: 'What agro-business services does Milan Imperial provide in Nigeria?',
-      a: 'Milan Imperial provides comprehensive agro-business solutions in Nigeria including farm operations management, commodity sourcing and processing, agro-financing for smallholder and commercial farmers, agricultural value chain development, market access facilitation, and sustainable farming advisory. We have been building agricultural expertise across West Africa since October 10th, 2019.',
+      q: 'How much land does Milan Imperial actually own?',
+      a: 'We hold 775 plots of Nigerian farmland — 51.7 hectares. That breaks down as 115 plots in Benue, 255 in Taraba, 30 in Jos, Plateau State, and 375 plots held since inception. We added 400 plots this year alone, more than doubling our founding land base in twelve months. Hectares are converted at the Nigerian standard 60ft x 120ft plot, which is 15 plots per hectare.',
     },
     {
-      q: 'How does Milan Imperial support smallholder farmers in West Africa?',
-      a: "Milan Imperial's outgrower programme connects smallholder farmers to inputs, finance, technical support, and guaranteed markets. We work directly with farming communities to improve yields, reduce post-harvest losses, and increase income. Our programme currently supports over 100 smallholder farmers across West Africa, with a target to reach over 150.",
+      q: 'How small an investment will Milan Imperial accept?',
+      a: 'There is no grand minimum. We structure around what you actually have rather than turning people away for starting small. Tell us the amount you are working with and what you want to achieve, and we will tell you honestly what is achievable at that level — including if the answer is that you should wait. What matters more than the size of your capital is that the terms are clear before anything is planted.',
+    },
+    {
+      q: 'I have money but no land and no farming experience. How does this work?',
+      a: 'That is the most common way people start with us. You tell us what you want to farm and the gain you are working towards. We allocate land from our own portfolio, provide the farmers who plant and harvest, and manage the crop through to lifting. If you want, we also sell the harvest through our domestic and export channels. You receive your capital and your gain, and we take only the percentage agreed before planting began. You never need to visit a field.',
+    },
+    {
+      q: 'I own land but do not know what to do with it. Can you help?',
+      a: 'Yes. We assess your soil, climate, access and local market demand, then tell you exactly what your land can profitably produce and what the realistic numbers look like. From there you choose: take the plan and farm it yourself with our advisory behind you, or hand the land to us and we farm it end to end with our own farmers and inputs, returning an agreed percentage of the proceeds to you.',
+    },
+    {
+      q: 'What has Milan Imperial actually produced so far?',
+      a: 'We have planted and harvested over 8,000 tubers of yam — a complete production cycle on our own land, not a trial plot. We have commenced our first trial export to the United Kingdom. And we have moved into animal husbandry, acquiring ruminant animals and supplying restaurants in Lagos, which gives the business revenue on a cycle independent of the harvest calendar.',
+    },
+    {
+      q: 'How many farmers does Milan Imperial employ?',
+      a: 'We engage the equivalent of 50 farmers per hectare. Across our 51.7 hectares that is more than 2,500 people earning from land we manage. We work with the local farming communities already present rather than displacing them, because their knowledge of the ground is something no amount of capital can replace.',
+    },
+    {
+      q: 'Does Milan Imperial export?',
+      a: 'Our first trial export to the United Kingdom has commenced. This is the channel that converts naira-denominated harvests into foreign-currency revenue, and it is why our post-harvest handling is built to export standard rather than local-market standard. Our 2027 target is to convert the successful trial into a full commercial container.',
     },
     {
       q: 'What crops and commodities does Milan Imperial work with?',
-      a: 'We work across a broad range of West African commodities including cassava, maize, soybean, cocoa, palm produce, groundnuts, sesame, ginger, rice, and horticultural produce. Our commodity selection is driven by market demand, regional comparative advantage, and client requirements.',
-    },
-    {
-      q: 'What is agro-financing and how does Milan Imperial structure it?',
-      a: 'Agro-financing refers to financial products and structures specifically designed for agricultural businesses and farmers. Milan Imperial structures input financing, crop advance facilities, commodity-backed lending, and project finance for agricultural infrastructure — matching financial solutions to the specific cash flow profile and risk environment of each agricultural enterprise.',
-    },
-    {
-      q: 'Does Milan Imperial operate farms directly or only provide advisory services?',
-      a: 'Milan Imperial does both. We operate and manage farms directly as well as provide advisory, extension, and management services to third-party farming operations. Our approach is tailored to the specific needs of each client — from full farm management to targeted advisory engagements.',
+      a: 'Yam is our proven production crop, with over 8,000 tubers planted and harvested. Beyond that we work across cassava, maize, soybean, cocoa, palm produce, groundnuts, sesame, ginger, rice, and horticultural produce. Commodity selection is driven by market demand, regional comparative advantage, and what a specific piece of land can actually support.',
     },
   ],
   consulting: [
@@ -730,11 +922,19 @@ export const faqs = {
     },
     {
       q: 'What does Milan Imperial Limited do?',
-      a: 'We are a diversified enterprise operating across four divisions in West Africa: Agro-Business, Farming & Financing; Business Consulting & Services; General Contractors, Supplies & Facilitation; and Private Charter Consultancy.',
+      a: 'We are a diversified enterprise operating across four divisions: Agro-Business, Farming & Financing; Business Consulting & Services; General Contractors, Supplies & Facilitation; and Private Charter Consultancy. Beyond the four divisions we also acquire residential property in the United States, United Kingdom and Australia, and we run a livestock operation supplying restaurants in Lagos.',
     },
     {
       q: 'Where does Milan Imperial operate?',
-      a: 'We operate across West Africa, headquartered in Nigeria with regional offices, serving clients who trust us with their most important projects and journeys.',
+      a: 'Our farmland sits across Benue, Taraba and Plateau State in Nigeria, and we are headquartered in Nigeria serving clients throughout West Africa. Our residential property acquisition reaches the United States, the United Kingdom and Australia, and our first agricultural export channel runs to the UK.',
+    },
+    {
+      q: 'Is Milan Imperial actually growing, or is this just ambition?',
+      a: 'We began with 375 plots of farmland. This year we added 400 more, taking the portfolio to 775 plots — 51.7 hectares — a 107% increase in twelve months. In the same period we completed a full production cycle of over 8,000 yam tubers, opened a trial export channel to the United Kingdom, and launched a livestock operation. We publish our targets and report against them annually so the growth can be checked rather than taken on trust.',
+    },
+    {
+      q: 'How can I invest in Milan Imperial, and how much do I need?',
+      a: 'There are three routes: you bring capital and we provide land, farmers and a buyer; you bring land and we tell you what it can grow or grow it for you on a profit share; or you participate in the wider operation across crops, livestock and export. There is no grand minimum — we structure around what you have. Contact us with the amount you are working with and we will tell you honestly what it can do.',
     },
     {
       q: 'What values guide the company?',
