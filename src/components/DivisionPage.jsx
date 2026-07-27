@@ -10,7 +10,9 @@ import ContactCTA from './home/ContactCTA';
 
 // Full detail page for a single division, driven by its slug. Mirrors the
 // section order of the live milanimperial.com division pages.
-const DivisionPage = ({ slug }) => {
+// `afterOverview` and `afterServices` are optional slots for division-specific
+// sections (e.g. the Agro land portfolio and investor routes).
+const DivisionPage = ({ slug, afterOverview, afterServices }) => {
   const d = divisions.find((x) => x.slug === slug);
 
   if (!d) return null;
@@ -87,6 +89,8 @@ const DivisionPage = ({ slug }) => {
         </div>
       </section>
 
+      {afterOverview}
+
       {/* Value proposition pull-quote */}
       {d.valueProp && (
         <section className="bg-ink text-sand">
@@ -125,6 +129,8 @@ const DivisionPage = ({ slug }) => {
           </div>
         </div>
       </section>
+
+      {afterServices}
 
       {/* Division narrative (stewardship / safety) */}
       {d.narrative && <NarrativeSection data={d.narrative} />}

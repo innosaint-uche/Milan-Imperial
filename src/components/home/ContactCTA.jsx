@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { MapPin, Mail, Phone } from 'lucide-react';
 import { company, navLinks } from '../../data/site';
 import Reveal from '../Reveal';
+import EmailLink from '../EmailLink';
 
 const ContactCTA = () => (
   <section id="contact" className="section bg-sand-2 dark:bg-white/[0.03]">
@@ -22,7 +23,7 @@ const ContactCTA = () => (
 
         <div className="flex flex-col sm:flex-row gap-4">
           <Link to="/contact" className="btn btn-gold">Start a Conversation</Link>
-          <a href={`mailto:${company.email}`} className="btn btn-outline">Email Us</a>
+          <EmailLink className="btn btn-outline">Email Us</EmailLink>
         </div>
       </Reveal>
 
@@ -39,18 +40,24 @@ const ContactCTA = () => (
             <Mail className="text-gold shrink-0" size={20} />
             <div>
               <p className="text-xs tracking-[0.2em] uppercase text-teal/50 dark:text-sand/50 mb-1">Email</p>
-              <a href={`mailto:${company.email}`} className="text-teal dark:text-sand hover:text-gold">
+              <EmailLink className="text-teal dark:text-sand hover:text-gold break-all">
                 {company.email}
-              </a>
+              </EmailLink>
             </div>
           </div>
-          <div className="flex gap-4">
-            <Phone className="text-gold shrink-0" size={20} />
-            <div>
-              <p className="text-xs tracking-[0.2em] uppercase text-teal/50 dark:text-sand/50 mb-1">Phone</p>
-              <p className="text-teal dark:text-sand">{company.phone}</p>
+          {/* Rendered only when a real number is set — an unanswered placeholder
+              is worse than no phone row at all. */}
+          {company.phone && (
+            <div className="flex gap-4">
+              <Phone className="text-gold shrink-0" size={20} />
+              <div>
+                <p className="text-xs tracking-[0.2em] uppercase text-teal/50 dark:text-sand/50 mb-1">Phone</p>
+                <a href={`tel:${company.phone.replace(/[^\d+]/g, '')}`} className="text-teal dark:text-sand hover:text-gold">
+                  {company.phone}
+                </a>
+              </div>
             </div>
-          </div>
+          )}
 
           <div className="pt-6 border-t border-teal/10 dark:border-white/10">
             <p className="text-xs tracking-[0.2em] uppercase text-teal/50 dark:text-sand/50 mb-3">Divisions</p>
