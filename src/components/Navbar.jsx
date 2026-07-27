@@ -34,11 +34,15 @@ const Navbar = () => {
       }`}
     >
       <div className="container-x flex items-center justify-between gap-4">
-        <Link to="/" className="flex items-center shrink-0" aria-label="Milan Imperial Limited home">
+        {/* Drops the logo below the nav row on large screens. Note the modifier
+            order: `lg:pt-*`, not `!lg:pt-*` — Tailwind ignores the latter. */}
+        <Link to="/" className="flex items-center shrink-0 lg:pt-4" aria-label="Milan Imperial Limited home">
           <img
             src={LOGO}
             alt="Milan Imperial Limited"
-            className={`${scrolled ? 'h-14 md:h-16' : 'h-16 md:h-20'} w-auto object-contain transition-all duration-300 ${overHero ? 'brightness-0 invert' : ''}`}
+            // h-30/h-34 are not on Tailwind's scale (24 → 28 → 32 → 36), so the
+            // equivalent arbitrary values are used: 7.5rem = 120px, 8.5rem = 136px.
+            className={`${scrolled ? 'h-16 md:h-[7.5rem]' : 'h-20 md:h-[8.5rem]'} w-auto object-contain transition-all duration-300 ${overHero ? 'brightness-0 invert' : ''}`}
           />
         </Link>
 
