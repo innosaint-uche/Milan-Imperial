@@ -14,26 +14,47 @@ const Field = ({ label, ...props }) => (
   </label>
 );
 
+const EMPTY = { name: '', email: '', company: '', message: '', website: '' };
+
 const Contact = () => {
-  const [form, setForm] = useState({ name: '', email: '', company: '', message: '' });
+  const [form, setForm] = useState(EMPTY);
+  // 'idle' | 'sending' | 'sent' | 'error'
+  const [status, setStatus] = useState('idle');
+  const [error, setError] = useState('');
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`Enquiry from ${form.name || 'website visitor'}`);
-    const body = encodeURIComponent(
-      `Name: ${form.name}\nEmail: ${form.email}\nCompany: ${form.company}\n\n${form.message}`
-    );
-    // Compose an email in the visitor's own mail client — no data leaves the browser otherwise.
-    window.location.href = `mailto:${company.email}?subject=${subject}&body=${body}`;
+    if (status === 'sending') return;
+    setStatus('sending');
+    setError('');
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      const data = await res.json().catch(() => ({}));
+
+      if (!res.ok) throw new Error(data.error || 'Something went wrong. Please try again.');
+
+      setForm(EMPTY);
+      setStatus('sent');
+    } catch (err) {
+      setError(err.message || 'Something went wrong. Please try again.');
+      setStatus('error');
+    }
   };
 
+  // `company.phone` is currently unset — drop any detail without a value rather
+  // than rendering a labelled row with nothing under it.
   const details = [
     { icon: MapPin, label: 'Location', value: company.location },
     { icon: Mail, label: 'Email', value: company.email, href: `mailto:${company.email}` },
     { icon: Phone, label: 'Phone', value: company.phone },
     { icon: Clock, label: 'Founded', value: company.founded },
-  ];
+  ].filter((d) => d.value);
 
   return (
     <>
@@ -90,10 +111,38 @@ const Contact = () => {
                   className="w-full bg-transparent border border-teal/20 dark:border-white/20 rounded-sm px-4 py-3 text-teal dark:text-sand outline-none focus:border-gold transition-colors resize-none"
                 />
               </label>
-              <button type="submit" className="btn btn-gold w-full">Send Enquiry</button>
-              <p className="text-xs text-teal/50 dark:text-sand/50 text-center">
-                This opens your email client — nothing is sent automatically.
-              </p>
+              {/* Honeypot — hidden from people, irresistible to bots. */}
+              <input
+                type="text"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                value={form.website}
+                onChange={set('website')}
+                className="hidden"
+              />
+
+              <button type="submit" disabled={status === 'sending'} className="btn btn-gold w-full disabled:opacity-60 disabled:cursor-not-allowed">
+                {status === 'sending' ? 'Sending…' : 'Send Enquiry'}
+              </button>
+
+              <div aria-live="polite" className="min-h-[1.25rem]">
+                {status === 'sent' && (
+                  <p className="text-sm text-leaf text-center">
+                    Thank you — your enquiry has been sent. We&rsquo;ll be in touch shortly.
+                  </p>
+                )}
+                {status === 'error' && (
+                  <p className="text-sm text-bronze dark:text-gold text-center">
+                    {error}{' '}
+                    <a href={`mailto:${company.email}`} className="underline hover:text-gold">
+                      Email us directly
+                    </a>
+                    .
+                  </p>
+                )}
+              </div>
             </form>
           </Reveal>
         </div>
