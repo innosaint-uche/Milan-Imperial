@@ -49,19 +49,24 @@ const Navbar = () => {
               key={link.name}
               to={link.href}
               className={({ isActive }) =>
-                `group relative whitespace-nowrap text-xs font-semibold tracking-[0.15em] uppercase transition-colors ${
+                // Underline marks the active route only; hover is a colour shift.
+                `relative whitespace-nowrap text-xs font-semibold tracking-[0.15em] uppercase transition-colors duration-300 hover:text-gold ${
                   overHero
-                    ? 'text-white/80 hover:text-white'
-                    : 'text-teal/80 dark:text-sand/80 hover:text-gold dark:hover:text-gold'
-                } ${isActive && !overHero ? '!text-gold' : ''}`
+                    ? isActive
+                      ? 'text-white'
+                      : 'text-white/70'
+                    : isActive
+                      ? 'text-teal dark:text-sand'
+                      : 'text-teal/70 dark:text-sand/70'
+                }`
               }
             >
               {({ isActive }) => (
                 <>
                   {link.name}
                   <span
-                    className={`pointer-events-none absolute -bottom-1.5 left-0 h-0.5 bg-gold transition-all duration-300 ${
-                      isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                    className={`pointer-events-none absolute -bottom-1.5 left-0 h-0.5 w-full origin-left bg-gold transition-transform duration-300 ${
+                      isActive ? 'scale-x-100' : 'scale-x-0'
                     }`}
                   />
                 </>
@@ -113,9 +118,22 @@ const Navbar = () => {
             <NavLink
               key={link.name}
               to={link.href}
-              className="py-3 text-sm font-semibold tracking-[0.12em] uppercase text-teal dark:text-sand hover:text-gold border-b border-teal/5 dark:border-white/5"
+              className={({ isActive }) =>
+                `py-3 text-sm font-semibold tracking-[0.12em] uppercase transition-colors duration-300 hover:text-gold border-b border-teal/5 dark:border-white/5 ${
+                  isActive ? 'text-teal dark:text-sand' : 'text-teal/70 dark:text-sand/70'
+                }`
+              }
             >
-              {link.name}
+              {({ isActive }) => (
+                <span className="relative inline-block">
+                  {link.name}
+                  <span
+                    className={`pointer-events-none absolute -bottom-1.5 left-0 h-0.5 w-full origin-left bg-gold transition-transform duration-300 ${
+                      isActive ? 'scale-x-100' : 'scale-x-0'
+                    }`}
+                  />
+                </span>
+              )}
             </NavLink>
           ))}
           <Link to="/contact" className="btn btn-gold mt-4">
