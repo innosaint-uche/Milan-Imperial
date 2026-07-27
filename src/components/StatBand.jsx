@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-// Parse "35,000+" -> { num: 35000, suffix: "+", grouped: true }; a plain year like
+// Parse "100+" -> { num: 100, suffix: "+", grouped: true }; a plain year like
 // "2019" keeps grouped:false so it never renders as "2,019". Non-numeric values
 // like "ISO 9001" fall through and render verbatim.
 const parse = (v) => {
