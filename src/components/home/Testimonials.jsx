@@ -44,9 +44,15 @@ const Card = ({ t }) => (
 // Each column duplicates its cards once; the keyframes translate by -50% so the
 // loop is seamless. The `group` wrapper lives on the column container (see below),
 // so hovering any card pauses this animated track for readability.
+//
+// The pause is gated on `@media (hover: hover)`. Touch browsers synthesise a
+// sticky :hover on whatever you last touched, so without the gate the swipe that
+// scrolls the page past this section latches the pause on and the marquee never
+// restarts. `will-change` keeps the long-running transform on its own layer,
+// which mobile Safari otherwise drops.
 const Column = ({ items, config }) => (
   <div
-    className={`flex flex-col ${config.anim} group-hover:[animation-play-state:paused]`}
+    className={`flex flex-col will-change-transform ${config.anim} [@media(hover:hover)]:group-hover:[animation-play-state:paused]`}
     style={{ '--marquee-duration': config.duration }}
   >
     {[...items, ...items].map((t, i) => (

@@ -19,7 +19,7 @@ export const company = {
   area: 'West Africa',
   tagline: 'Creating Values',
   location: 'West Africa — Nigeria & Regional Offices',
-  email: 'enquiries@milanimperial.com',
+  email: 'milanimperial2@gmail.com',
   phone: '+234 (0) 000 000 0000',
 };
 
@@ -59,7 +59,7 @@ export const heroSlides = [
 ];
 
 export const stats = [
-  { value: '35,000+', label: 'Smallholder Farmers Supported' },
+  { value: '100+', label: 'Smallholder Farmers Supported' },
   { value: '4', label: 'Business Divisions Operating' },
   { value: '2019', label: 'Year Founded' },
   { value: '100%', label: 'Commitment to Safety & Excellence' },
@@ -88,7 +88,7 @@ export const divisions = [
     quote: 'Empower farmers. Enhance food security. Create lasting value.',
     image: U('1464226184884-fa280b87c399'),
     description:
-      "Milan Imperial's Agro-Business division connects farmers to markets, enhances productivity through sustainable practices, and delivers high-quality agricultural products meeting international standards. With deep local relationships across 35,000+ smallholder farmers, we are reshaping West African agriculture.",
+      "Milan Imperial's Agro-Business division connects farmers to markets, enhances productivity through sustainable practices, and delivers high-quality agricultural products meeting international standards. With deep local relationships across 100+ smallholder farmers, we are reshaping West African agriculture.",
     keywords: [
       'Agro-Business Nigeria',
       'Farm Financing West Africa',
@@ -100,8 +100,8 @@ export const divisions = [
       'Climate-Smart Agriculture',
     ],
     metrics: [
-      { value: '35,000+', label: 'Smallholder Farmers Supported' },
-      { value: '50,000', label: 'Outgrower Target' },
+      { value: '100+', label: 'Smallholder Farmers Supported' },
+      { value: '150+', label: 'Outgrower Target' },
       { value: '25%', label: 'Carbon Reduction Target' },
       { value: '100%', label: 'Sustainable Sourcing Goal' },
     ],
@@ -110,7 +110,7 @@ export const divisions = [
       emphasis: 'Across West Africa',
       paragraphs: [
         "Milan Imperial's Agro-Business division is one of West Africa's most comprehensive agricultural solutions providers. We empower farmers, enhance food security, and promote sustainable agricultural practices across Nigeria and the broader West African sub-region. Our mission is to transform agricultural value chains by connecting farmers to markets, enhancing productivity through sustainable practices, and delivering high-quality agricultural products that meet international standards.",
-        'Since our incorporation on October 10th, 2019, Milan Imperial has built deep local relationships with over 35,000 smallholder farmers. We work alongside farming communities — providing inputs, finance, technical knowledge, and market access — to create value at every point of the agricultural chain.',
+        'Since our incorporation on October 10th, 2019, Milan Imperial has built deep local relationships with over 100 smallholder farmers. We work alongside farming communities — providing inputs, finance, technical knowledge, and market access — to create value at every point of the agricultural chain.',
         'Our integrated approach combines agro-business operations, direct farm management, bespoke agro-financing structures, climate-smart practices, and market linkage services into a single, seamless offering. Whether you are a smallholder farmer, a commercial agricultural enterprise, or an institutional investor in West African agriculture, Milan Imperial delivers solutions tailored to your specific needs.',
       ],
     },
@@ -118,7 +118,7 @@ export const divisions = [
       title: 'Why Choose Milan Imperial Agro?',
       ctaLabel: 'Partner With Us',
       points: [
-        'Deep local relationships with over 35,000 smallholder farmers since October 10th, 2019',
+        'Deep local relationships with over 100 smallholder farmers since October 10th, 2019',
         'Commitment to regenerative and climate-smart agricultural practices',
         'Quality assurance through rigorous testing and traceability',
         'Reliable supply chain powered by integrated logistics',
@@ -190,7 +190,7 @@ export const divisions = [
       paragraphs: [
         "Milan Imperial's agro-business division promotes regenerative agricultural practices that improve soil health, sequester carbon, and increase farmer resilience to climate change. We think long-term — our decisions today must benefit farmers, clients, communities, and ecosystems for generations to come.",
         'Our commitment to sustainable stewardship is not just an ethical position — it is a business strategy. Sustainable farms are more productive, more resilient, and more attractive to premium buyers. By integrating climate-smart practices from the ground up, we create agricultural enterprises that are built to last.',
-        'Through our outgrower programme, we have committed to expanding support to 50,000 smallholder farmers while reducing carbon emissions across our operations by 25% and achieving 100% sustainable sourcing for all key commodities.',
+        'Through our outgrower programme, we have committed to expanding support to over 150 smallholder farmers while reducing carbon emissions across our operations by 25% and achieving 100% sustainable sourcing for all key commodities.',
       ],
       pillars: [
         { title: 'Regenerative Practices', desc: 'Soil health, cover cropping, and agroforestry integrated into all programmes.' },
@@ -628,7 +628,7 @@ export const okrs = [
     num: '04',
     title: 'Community & Environment',
     results: [
-      'Outgrower programme supporting 50,000 smallholder farmers',
+      'Outgrower programme supporting over 150 smallholder farmers',
       '25% reduction in carbon emissions',
       'Community development in all operating regions',
       'Zero waste-to-landfill at headquarters and major facilities',
@@ -646,7 +646,7 @@ export const faqs = {
     },
     {
       q: 'How does Milan Imperial support smallholder farmers in West Africa?',
-      a: "Milan Imperial's outgrower programme connects smallholder farmers to inputs, finance, technical support, and guaranteed markets. We work directly with farming communities to improve yields, reduce post-harvest losses, and increase income. Our programme currently supports over 35,000 smallholder farmers across West Africa, with a target to reach 50,000.",
+      a: "Milan Imperial's outgrower programme connects smallholder farmers to inputs, finance, technical support, and guaranteed markets. We work directly with farming communities to improve yields, reduce post-harvest losses, and increase income. Our programme currently supports over 100 smallholder farmers across West Africa, with a target to reach over 150.",
     },
     {
       q: 'What crops and commodities does Milan Imperial work with?',
@@ -742,7 +742,7 @@ export const faqs = {
     },
     {
       q: 'How do I start a partnership with Milan Imperial?',
-      a: 'Reach out through our contact page or email enquiries@milanimperial.com. Tell us about your project and we will tailor a solution built on integrity, safety, and excellence.',
+      a: 'Reach out through our contact page or email milanimperial2@gmail.com. Tell us about your project and we will tailor a solution built on integrity, safety, and excellence.',
     },
   ],
 };
