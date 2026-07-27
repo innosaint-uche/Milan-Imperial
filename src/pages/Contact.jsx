@@ -3,6 +3,7 @@ import { MapPin, Mail, Phone, Clock } from 'lucide-react';
 import { company } from '../data/site';
 import PageHero from '../components/PageHero';
 import Reveal from '../components/Reveal';
+import EmailLink from '../components/EmailLink';
 
 const Field = ({ label, ...props }) => (
   <label className="block">
@@ -35,14 +36,31 @@ const Contact = () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       });
-      const data = await res.json().catch(() => ({}));
 
-      if (!res.ok) throw new Error(data.error || 'Something went wrong. Please try again.');
+      // A missing or misrouted endpoint answers with HTML, not JSON — parsing it
+      // as JSON is what previously collapsed every failure into one vague message.
+      const isJson = (res.headers.get('content-type') || '').includes('application/json');
+      const data = isJson ? await res.json().catch(() => ({})) : {};
+
+      if (!res.ok) {
+        console.error('[contact] Request failed', res.status, data);
+        throw new Error(
+          data.error ||
+            (res.status === 404
+              ? 'The contact service could not be reached.'
+              : `The contact service returned an error (${res.status}).`)
+        );
+      }
 
       setForm(EMPTY);
       setStatus('sent');
     } catch (err) {
-      setError(err.message || 'Something went wrong. Please try again.');
+      console.error('[contact]', err);
+      setError(
+        err instanceof TypeError
+          ? 'We could not reach the contact service — check your connection.'
+          : err.message || 'Something went wrong.'
+      );
       setStatus('error');
     }
   };
@@ -51,8 +69,8 @@ const Contact = () => {
   // than rendering a labelled row with nothing under it.
   const details = [
     { icon: MapPin, label: 'Location', value: company.location },
-    { icon: Mail, label: 'Email', value: company.email, href: `mailto:${company.email}` },
-    { icon: Phone, label: 'Phone', value: company.phone },
+    { icon: Mail, label: 'Email', value: company.email, email: true },
+    { icon: Phone, label: 'Phone', value: company.phone, href: `tel:${String(company.phone).replace(/[^\d+]/g, '')}` },
     { icon: Clock, label: 'Founded', value: company.founded },
   ].filter((d) => d.value);
 
@@ -81,7 +99,11 @@ const Contact = () => {
                   <d.icon className="text-gold shrink-0" size={20} />
                   <div>
                     <p className="text-xs tracking-[0.2em] uppercase text-teal/50 dark:text-sand/50 mb-1">{d.label}</p>
-                    {d.href ? (
+                    {d.email ? (
+                      <EmailLink className="text-teal dark:text-sand hover:text-gold break-all">
+                        {d.value}
+                      </EmailLink>
+                    ) : d.href ? (
                       <a href={d.href} className="text-teal dark:text-sand hover:text-gold break-all">{d.value}</a>
                     ) : (
                       <p className="text-teal dark:text-sand">{d.value}</p>
@@ -136,9 +158,14 @@ const Contact = () => {
                 {status === 'error' && (
                   <p className="text-sm text-bronze dark:text-gold text-center">
                     {error}{' '}
-                    <a href={`mailto:${company.email}`} className="underline hover:text-gold">
+                    <EmailLink
+                      className="underline hover:text-gold"
+                      subject="Enquiry for Milan Imperial Limited"
+                      body={form.message}
+                      copiedLabel="Copy this address"
+                    >
                       Email us directly
-                    </a>
+                    </EmailLink>
                     .
                   </p>
                 )}
