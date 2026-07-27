@@ -4,6 +4,16 @@ import { Menu, X, Sun, Moon } from 'lucide-react';
 import { navLinks, LOGO } from '../data/site';
 import useDarkMode from '../hooks/useDarkMode';
 
+// The logo artwork sits high inside its own SVG canvas — there is empty space
+// below the mark — so vertically centring the <img> does not visually centre the
+// logo. This lifts the menu row to match the logo's optical centre.
+//
+// Tune this ONE value; it is applied to both the nav links and the right-hand
+// controls so they stay aligned with each other. It must stay a complete literal
+// string: Tailwind scans source text, so a class assembled at runtime would never
+// be generated.
+const NAV_LIFT = 'lg:-translate-y-[28px]';
+
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -34,16 +44,21 @@ const Navbar = () => {
       }`}
     >
       <div className="container-x flex items-center justify-between gap-4">
-        <Link to="/" className="flex items-center shrink-0" aria-label="Milan Imperial Limited home">
+        {/* Drops the logo below the nav row on large screens. Note the modifier
+            order: `lg:pt-*`, not `!lg:pt-*` — Tailwind ignores the latter. */}
+        <Link to="/" className="flex items-center shrink-0 lg:pt-4" aria-label="Milan Imperial Limited home">
           <img
             src={LOGO}
             alt="Milan Imperial Limited"
-            className={`${scrolled ? 'h-14 md:h-16' : 'h-16 md:h-20'} w-auto object-contain transition-all duration-300 ${overHero ? 'brightness-0 invert' : ''}`}
+            // h-30/h-34 are not on Tailwind's scale (24 → 28 → 32 → 36), so the
+            // equivalent arbitrary values are used: 7.5rem = 120px, 8.5rem = 136px.
+            className={`${scrolled ? 'h-16 md:h-[7.5rem]' : 'h-20 md:h-[8.5rem]'} w-auto object-contain transition-all duration-300 ${overHero ? 'brightness-0 invert' : ''}`}
           />
         </Link>
 
-        {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-7">
+        {/* Desktop nav — lifted by NAV_LIFT to sit level with the logo. The shift
+            is a transform, so it is painted only and changes no layout. */}
+        <nav className={`hidden lg:flex items-center gap-7 ${NAV_LIFT}`}>
           {navLinks.map((link) => (
             <NavLink
               key={link.name}
@@ -75,7 +90,7 @@ const Navbar = () => {
           ))}
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className={`flex items-center gap-3 ${NAV_LIFT}`}>
           <button
             onClick={toggleDark}
             aria-label="Toggle dark mode"
