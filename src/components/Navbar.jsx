@@ -4,6 +4,16 @@ import { Menu, X, Sun, Moon } from 'lucide-react';
 import { navLinks, LOGO } from '../data/site';
 import useDarkMode from '../hooks/useDarkMode';
 
+// The logo artwork sits high inside its own SVG canvas — there is empty space
+// below the mark — so vertically centring the <img> does not visually centre the
+// logo. This lifts the menu row to match the logo's optical centre.
+//
+// Tune this ONE value; it is applied to both the nav links and the right-hand
+// controls so they stay aligned with each other. It must stay a complete literal
+// string: Tailwind scans source text, so a class assembled at runtime would never
+// be generated.
+const NAV_LIFT = 'lg:-translate-y-[28px]';
+
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -46,8 +56,9 @@ const Navbar = () => {
           />
         </Link>
 
-        {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-7">
+        {/* Desktop nav — lifted by NAV_LIFT to sit level with the logo. The shift
+            is a transform, so it is painted only and changes no layout. */}
+        <nav className={`hidden lg:flex items-center gap-7 ${NAV_LIFT}`}>
           {navLinks.map((link) => (
             <NavLink
               key={link.name}
@@ -79,7 +90,7 @@ const Navbar = () => {
           ))}
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className={`flex items-center gap-3 ${NAV_LIFT}`}>
           <button
             onClick={toggleDark}
             aria-label="Toggle dark mode"
